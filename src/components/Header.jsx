@@ -25,15 +25,15 @@ export default function Header() {
         <div className="nav-links-container">
           <nav>
             <ul className="nav-links">
-              {menuItems.map((items, index) => (
+              {menuItems.map((item, index) => (
                 <NavLink
-                  to={items}
+                  to={item === "mercury" ? "/" : item}
                   className={({ isActive }) =>
                     isActive ? "active-link" : "not-active-link"
                   }
                   key={index}
                 >
-                  {items}
+                  {item}
                 </NavLink>
               ))}
             </ul>

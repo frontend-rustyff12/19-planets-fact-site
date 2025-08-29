@@ -1,4 +1,4 @@
-export default function Venus() {
+export default function Uranus() {
   return (
     <section className="main-wrapper">
       <div className="buttons-container">
