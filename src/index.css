@@ -38,7 +38,6 @@ body {
   background-position: center;
   background-size: cover;
   min-height: 100dvh;
-  overflow: hidden;
 }
 
 h1 {
@@ -475,6 +474,10 @@ header {
   .nav-links a.neptune:hover::before,
   .nav-links a.active-link.neptune::before {
     background-color: var(--neptune);
+  }
+
+  .chevron {
+    display: none;
   }
 
   /* Body */
