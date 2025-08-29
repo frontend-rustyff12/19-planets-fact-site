@@ -238,6 +238,7 @@ header {
   margin-top: 1rem;
   font-family: "League Spartan", sans-serif;
   display: flex;
+  align-items: center;
 }
 
 .text-container .source span {
@@ -257,6 +258,35 @@ header {
   margin-left: 5px;
   width: 12px;
   height: 12px;
+}
+
+/* Info */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1.5rem 3rem;
+  gap: 0.5rem;
+}
+
+.info-container {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--grey-500);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info-container p {
+  text-transform: uppercase;
+  color: var(--grey-500);
+  font-weight: 700;
+}
+
+.info-container h3 {
+  font-family: "Antonio", sans-serif;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 700;
 }
 
 @media screen and (min-width: 768px) {
