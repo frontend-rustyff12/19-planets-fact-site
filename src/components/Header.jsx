@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { NavLink } from "react-router";
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
   const menuItems = [
     "mercury",
     "venus",
@@ -10,11 +12,21 @@ export default function Header() {
     "uranus",
     "neptune",
   ];
+
+  function toggleMenu() {
+    setIsMenuOpen(!isMenuOpen);
+    console.log("clicked");
+  }
+
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   return (
     <header>
       <div className="header-container">
         <h2 className="uppercase">The Planets</h2>
-        <button>
+        <button onClick={toggleMenu}>
           <img
             role="button"
             className="nav-menu-hamburger"
@@ -22,7 +34,8 @@ export default function Header() {
             alt="Hamburger icon"
           />
         </button>
-        <div className="nav-links-container">
+
+        <div className={`nav-links-container ${isMenuOpen ? "open" : ""}`}>
           <nav>
             <ul className="nav-links">
               {menuItems.map((item, index) => (
@@ -32,8 +45,10 @@ export default function Header() {
                     isActive ? `active-link ${item}` : `${item}`
                   }
                   key={index}
+                  onClick={closeMenu}
                 >
-                  {item}
+                  <span className={`circle ${item}`}></span> {item}{" "}
+                  <img className="chevron" src="/icon-chevron.svg" alt="" />
                 </NavLink>
               ))}
             </ul>
