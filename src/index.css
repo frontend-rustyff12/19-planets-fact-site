@@ -383,8 +383,31 @@ header {
   .buttons-container button.active::after {
     display: none;
   }
+
   .buttons-container button:hover {
     background-color: var(--grey-900);
+  }
+
+  /* Info */
+  .info-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .info-container {
+    padding: 0.75rem 0.5rem;
+    border: 1px solid var(--grey-500);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .info-container p {
+    /*  */
+  }
+
+  .info-container h3 {
+    /*  */
   }
 }
 
