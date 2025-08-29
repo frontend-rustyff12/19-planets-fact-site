@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # templates
-/design/templates
+/design/templates/
