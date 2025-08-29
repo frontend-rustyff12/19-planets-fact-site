@@ -59,12 +59,22 @@ export default function Neptune() {
           <span>03</span> Surface
         </button>
       </div>
-      <div className="image-container">
-        <img
-          src={pageData.image || "/neptune/planet-neptune.svg"}
-          alt={`${pageData.name} ${curTab}`}
-        />
-      </div>
+      {curTab === "geology" ? (
+        <div className="image-container geology">
+          <img src="/neptune/planet-neptune.svg" alt="" />
+          <img
+            src={pageData.image || "/neptune/planet-neptune.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      ) : (
+        <div className="image-container">
+          <img
+            src={pageData.image || "/neptune/planet-neptune.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      )}
       <div className="text-container">
         <h1 className="uppercase">Neptune</h1>
         <p className="info">{pageData.content}</p>

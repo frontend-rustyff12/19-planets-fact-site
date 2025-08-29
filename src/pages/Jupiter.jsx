@@ -60,12 +60,22 @@ export default function Jupiter() {
           <span>03</span> Surface
         </button>
       </div>
-      <div className="image-container">
-        <img
-          src={pageData.image || "/jupiter/planet-jupiter.svg"}
-          alt={`${pageData.name} ${curTab}`}
-        />
-      </div>
+      {curTab === "geology" ? (
+        <div className="image-container geology">
+          <img src="/jupiter/planet-jupiter.svg" alt="" />
+          <img
+            src={pageData.image || "/jupiter/planet-jupiter.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      ) : (
+        <div className="image-container">
+          <img
+            src={pageData.image || "/jupiter/planet-jupiter.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      )}
       <div className="text-container">
         <h1 className="uppercase">Jupiter</h1>
         <p className="info">{pageData.content}</p>

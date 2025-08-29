@@ -59,12 +59,22 @@ export default function Uranus() {
           <span>03</span> Surface
         </button>
       </div>
-      <div className="image-container">
-        <img
-          src={pageData.image || "/uranus/planet-uranus.svg"}
-          alt={`${pageData.name} ${curTab}`}
-        />
-      </div>
+      {curTab === "geology" ? (
+        <div className="image-container geology">
+          <img src="/uranus/planet-uranus.svg" alt="" />
+          <img
+            src={pageData.image || "/uranus/planet-uranus.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      ) : (
+        <div className="image-container">
+          <img
+            src={pageData.image || "/uranus/planet-uranus.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      )}
       <div className="text-container">
         <h1 className="uppercase">Uranus</h1>
         <p className="info">{pageData.content}</p>

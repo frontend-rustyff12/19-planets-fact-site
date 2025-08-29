@@ -60,12 +60,22 @@ export default function Mars() {
           <span>03</span> Surface
         </button>
       </div>
-      <div className="image-container">
-        <img
-          src={pageData.image || "/mars/planet-mars.svg"}
-          alt={`${pageData.name} ${curTab}`}
-        />
-      </div>
+      {curTab === "geology" ? (
+        <div className="image-container geology">
+          <img src="/mars/planet-mars.svg" alt="" />
+          <img
+            src={pageData.image || "/mars/planet-mars.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      ) : (
+        <div className="image-container">
+          <img
+            src={pageData.image || "/mars/planet-mars.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      )}
       <div className="text-container">
         <h1 className="uppercase">Mars</h1>
         <p className="info">{pageData.content}</p>
