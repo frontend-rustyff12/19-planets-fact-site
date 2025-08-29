@@ -2,14 +2,20 @@ export default function Mercury() {
   return (
     <section className="main-wrapper">
       <div className="buttons-container">
-        <button className="active">Overview</button>
-        <button>Structure</button>
-        <button>Surface</button>
+        <button className="active">
+          <span>01</span> Overview
+        </button>
+        <button>
+          <span>02</span> Structure
+        </button>
+        <button>
+          <span>03</span> Surface
+        </button>
       </div>
       <div className="image-container">
         <img src="/mercury/planet-mercury.svg" alt="" />
       </div>
-      <div className="text-content">
+      <div className="text-container">
         <h1 className="uppercase">Mercury</h1>
         <p className="info">
           Mercury is the smallest planet in the Solar System and the closest to
