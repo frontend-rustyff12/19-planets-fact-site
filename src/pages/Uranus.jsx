@@ -39,28 +39,22 @@ export default function Uranus() {
       <div className="buttons-container">
         <button
           onClick={handleClick}
+          className={curTab === "overview" ? "active-tab uranus" : ""}
           value="overview"
-          style={{
-            backgroundColor: curTab === "overview" ? "var(--uranus)" : "",
-          }}
         >
           <span>01</span> Overview
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "structure" ? "active-tab uranus" : ""}
           value="structure"
-          style={{
-            backgroundColor: curTab === "structure" ? "var(--uranus)" : "",
-          }}
         >
           <span>02</span> Structure
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "geology" ? "active-tab  uranus" : ""}
           value="geology"
-          style={{
-            backgroundColor: curTab === "geology" ? "var(--uranus)" : "",
-          }}
         >
           <span>03</span> Surface
         </button>

@@ -147,23 +147,6 @@ header {
   color: var(--white);
 }
 
-.nav-links a:hover {
-  color: var(--white);
-  position: relative;
-}
-
-.nav-links a:hover::before {
-  color: var(--white);
-  content: "";
-  background-color: var(--mercury);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  transform: translateY(-35px);
-}
-
 /* Body */
 .main-wrapper {
   display: flex;
@@ -191,19 +174,57 @@ header {
   color: var(--grey-500);
 }
 
-.buttons-container button.active {
-  color: var(--white);
-}
-
-.buttons-container button.active::after {
+.active-tab.mercury::after,
+.active-tab.venus::after,
+.active-tab.earth::after,
+.active-tab.mars::after,
+.active-tab.jupiter::after,
+.active-tab.saturn::after,
+.active-tab.uranus::after,
+.active-tab.neptune::after {
   content: "";
-  background-color: var(--mercury);
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 4px;
   transform: translateY(20px);
+}
+
+.active-tab.mercury::after {
+  background-color: var(--mercury);
+}
+.active-tab.venus::after {
+  background-color: var(--venus);
+}
+.active-tab.earth::after {
+  background-color: var(--earth);
+}
+.active-tab.mars::after {
+  background-color: var(--mars);
+}
+.active-tab.jupiter::after {
+  background-color: var(--jupiter);
+}
+.active-tab.saturn::after {
+  background-color: var(--saturn);
+}
+.active-tab.uranus::after {
+  background-color: var(--uranus);
+}
+.active-tab.neptune::after {
+  background-color: var(--neptune);
+}
+
+.active-tab.mercury:active,
+.active-tab.venus:active,
+.active-tab.earth:active,
+.active-tab.mars:active,
+.active-tab.jupiter:active,
+.active-tab.saturn:active,
+.active-tab.uranus:active,
+.active-tab.neptune:active {
+  color: var(--white);
 }
 
 .image-container {
@@ -316,6 +337,56 @@ header {
     gap: 1.75rem;
   }
 
+  .nav-links a:hover,
+  .nav-links a.active-link {
+    color: var(--white);
+    position: relative;
+  }
+
+  .nav-links a.active-link::before {
+    content: "";
+    background-color: var(--mercury);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateY(45px);
+  }
+
+  .nav-links a.mercury:hover::before,
+  .nav-links a.active-link.mercury::before {
+    background-color: var(--mercury);
+  }
+  .nav-links a.venus:hover::before,
+  .nav-links a.active-link.venus::before {
+    background-color: var(--venus);
+  }
+  .nav-links a.earth:hover::before,
+  .nav-links a.active-link.earth::before {
+    background-color: var(--earth);
+  }
+  .nav-links a.mars:hover::before,
+  .nav-links a.active-link.mars::before {
+    background-color: var(--mars);
+  }
+  .nav-links a.jupiter:hover::before,
+  .nav-links a.active-link.jupiter::before {
+    background-color: var(--jupiter);
+  }
+  .nav-links a.saturn:hover::before,
+  .nav-links a.active-link.saturn::before {
+    background-color: var(--saturn);
+  }
+  .nav-links a.uranus:hover::before,
+  .nav-links a.active-link.uranus::before {
+    background-color: var(--uranus);
+  }
+  .nav-links a.neptune:hover::before,
+  .nav-links a.active-link.neptune::before {
+    background-color: var(--neptune);
+  }
+
   /* Body */
 
   .main-wrapper {
@@ -376,11 +447,54 @@ header {
     transition: background 0.3s ease-in-out;
   }
 
-  /* .buttons-container button.active {
+  .active-tab.mercury,
+  .active-tab.mercury:active {
     background-color: var(--mercury);
-  } */
+  }
 
-  .buttons-container button.active::after {
+  .active-tab.venus,
+  .active-tab.venus:active {
+    background-color: var(--venus);
+  }
+
+  .active-tab.earth,
+  .active-tab.earth:active {
+    background-color: var(--earth);
+  }
+
+  .active-tab.mars,
+  .active-tab.mars:active {
+    background-color: var(--mars);
+  }
+
+  .active-tab.jupiter,
+  .active-tab.jupiter:active {
+    background-color: var(--jupiter);
+  }
+
+  .active-tab.saturn,
+  .active-tab.saturn:active {
+    background-color: var(--saturn);
+  }
+
+  .active-tab.uranus,
+  .active-tab.uranus:active {
+    background-color: var(--uranus);
+  }
+
+  .active-tab.neptune,
+  .active-tab.neptune:active {
+    background-color: var(--neptune);
+  }
+
+  .active-tab.mercury::after,
+  .active-tab.venus::after,
+  .active-tab.earth::after,
+  .active-tab.mars::after,
+  .active-tab.jupiter::after,
+  .active-tab.saturn::after,
+  .active-tab.uranus::after,
+  .active-tab.neptune::after {
     display: none;
   }
 
@@ -414,6 +528,18 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nav-links a:hover::before,
+  .nav-links a.active-link::before {
+    content: "";
+    background-color: var(--mercury);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-35px);
   }
 
   /* Body */

@@ -29,7 +29,7 @@ export default function Header() {
                 <NavLink
                   to={item === "mercury" ? "/" : item}
                   className={({ isActive }) =>
-                    isActive ? "active-link" : "not-active-link"
+                    isActive ? `active-link ${item}` : `${item}`
                   }
                   key={index}
                 >

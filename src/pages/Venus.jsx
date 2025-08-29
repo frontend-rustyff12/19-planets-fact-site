@@ -40,28 +40,22 @@ export default function Venus() {
       <div className="buttons-container">
         <button
           onClick={handleClick}
+          className={curTab === "overview" ? "active-tab venus" : ""}
           value="overview"
-          style={{
-            backgroundColor: curTab === "overview" ? "var(--venus)" : "",
-          }}
         >
           <span>01</span> Overview
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "structure" ? "active-tab venus" : ""}
           value="structure"
-          style={{
-            backgroundColor: curTab === "structure" ? "var(--venus)" : "",
-          }}
         >
           <span>02</span> Structure
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "geology" ? "active-tab  venus" : ""}
           value="geology"
-          style={{
-            backgroundColor: curTab === "geology" ? "var(--venus)" : "",
-          }}
         >
           <span>03</span> Surface
         </button>

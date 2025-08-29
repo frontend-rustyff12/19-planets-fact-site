@@ -40,38 +40,44 @@ export default function Mercury() {
       <div className="buttons-container">
         <button
           onClick={handleClick}
+          className={curTab === "overview" ? "active-tab mercury" : ""}
           value="overview"
-          style={{
-            backgroundColor: curTab === "overview" ? "var(--mercury)" : "",
-          }}
         >
           <span>01</span> Overview
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "structure" ? "active-tab mercury" : ""}
           value="structure"
-          style={{
-            backgroundColor: curTab === "structure" ? "var(--mercury)" : "",
-          }}
         >
           <span>02</span> Structure
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "geology" ? "active-tab  mercury" : ""}
           value="geology"
-          style={{
-            backgroundColor: curTab === "geology" ? "var(--mercury)" : "",
-          }}
         >
           <span>03</span> Surface
         </button>
       </div>
-      <div className="image-container">
-        <img
-          src={pageData.image || "/mercury/planet-mercury.svg"}
-          alt={`${pageData.name} ${curTab}`}
-        />
-      </div>
+
+      {curTab === "geology" ? (
+        <div className="image-container geology">
+          <img src="/mercury/planet-mercury.svg" alt="" />
+          <img
+            src={pageData.image || "/mercury/planet-mercury.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      ) : (
+        <div className="image-container">
+          <img
+            src={pageData.image || "/mercury/planet-mercury.svg"}
+            alt={`${pageData.name} ${curTab}`}
+          />
+        </div>
+      )}
+
       <div className="text-container">
         <h1 className="uppercase">Mercury</h1>
         <p className="info">{pageData.content}</p>

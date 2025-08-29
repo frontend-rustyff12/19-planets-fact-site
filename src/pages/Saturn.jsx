@@ -40,28 +40,22 @@ export default function Saturn() {
       <div className="buttons-container">
         <button
           onClick={handleClick}
+          className={curTab === "overview" ? "active-tab saturn" : ""}
           value="overview"
-          style={{
-            backgroundColor: curTab === "overview" ? "var(--saturn)" : "",
-          }}
         >
           <span>01</span> Overview
         </button>
         <button
           onClick={handleClick}
           value="structure"
-          style={{
-            backgroundColor: curTab === "structure" ? "var(--saturn)" : "",
-          }}
+          className={curTab === "structure" ? "active-tab saturn" : ""}
         >
           <span>02</span> Structure
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "geology" ? "active-tab  saturn" : ""}
           value="geology"
-          style={{
-            backgroundColor: curTab === "geology" ? "var(--saturn)" : "",
-          }}
         >
           <span>03</span> Surface
         </button>

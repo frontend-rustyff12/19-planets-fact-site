@@ -40,28 +40,22 @@ export default function Mars() {
       <div className="buttons-container">
         <button
           onClick={handleClick}
+          className={curTab === "overview" ? "active-tab mars" : ""}
           value="overview"
-          style={{
-            backgroundColor: curTab === "overview" ? "var(--mars)" : "",
-          }}
         >
           <span>01</span> Overview
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "structure" ? "active-tab mars" : ""}
           value="structure"
-          style={{
-            backgroundColor: curTab === "structure" ? "var(--mars)" : "",
-          }}
         >
           <span>02</span> Structure
         </button>
         <button
           onClick={handleClick}
+          className={curTab === "geology" ? "active-tab  mercury" : ""}
           value="geology"
-          style={{
-            backgroundColor: curTab === "geology" ? "var(--mars)" : "",
-          }}
         >
           <span>03</span> Surface
         </button>
