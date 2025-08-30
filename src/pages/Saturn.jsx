@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
+import TextContent from "../components/TextContent";
 import planetData from "../data/data.json";
 import { imageAnimation } from "../utils/animations";
 export default function Saturn() {
@@ -88,17 +89,7 @@ export default function Saturn() {
           </div>
         )}
       </AnimatePresence>
-      <div className="text-container">
-        <h1 className="uppercase">Saturn</h1>
-        <p className="info">{pageData.content}</p>
-        <p className="source">
-          <span>Source :</span>{" "}
-          <a href={pageData.source} target="_blank" rel="noopener noreferrer">
-            Wikipedia
-          </a>
-          <img src="/icon-source.svg" alt="" />
-        </p>
-      </div>
+      <TextContent pageData={pageData} name="Saturn" />
     </section>
   );
 }
