@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import planetData from "../data/data.json";
+import { AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
-import { imageAnimation } from "../utils/animations";
+import TextContent from "../components/TextContent";
+import ImageTabs from "../components/ImageTabs";
+import planetData from "../data/data.json";
 
 export default function Mercury() {
   const [curTab, setCurTab] = useState("overview");
@@ -51,30 +52,7 @@ export default function Mercury() {
   }, [curTab, pageData.name]);
 
   return (
-    <section className="main-wrapper">
-      {/* <div className="buttons-container">
-        <button
-          onClick={handleClick}
-          className={curTab === "overview" ? "active-tab mercury" : ""}
-          value="overview"
-        >
-          <span>01</span> Overview
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "structure" ? "active-tab mercury" : ""}
-          value="structure"
-        >
-          <span>02</span> Structure
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "geology" ? "active-tab  mercury" : ""}
-          value="geology"
-        >
-          <span>03</span> Surface
-        </button>
-      </div> */}
+    <section className="main-wrapper" aria-labelledby="planet-heading">
       <Button
         curTab={curTab}
         handleClick={handleClick}
@@ -82,49 +60,14 @@ export default function Mercury() {
       />
 
       <AnimatePresence mode="wait">
-        {curTab === "geology" ? (
-          <motion.div
-            key="geology"
-            className="image-container mercury geology"
-            {...imageAnimation}
-          >
-            <motion.img
-              src="/mercury/planet-mercury.svg"
-              alt=""
-              {...imageAnimation}
-            />
-            <motion.img
-              src={pageData.image || "/mercury/planet-mercury.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key={curTab}
-            className="image-container mercury"
-            {...imageAnimation}
-          >
-            <motion.img
-              src={pageData.image || "/mercury/planet-mercury.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        )}
+        <ImageTabs
+          curTab={curTab}
+          pageData={pageData}
+          name={pageData.name.toLowerCase()}
+        />
       </AnimatePresence>
 
-      <div className="text-container">
-        <h1 className="uppercase">Mercury</h1>
-        <p className="info">{pageData.content}</p>
-        <p className="source">
-          <span>Source :</span>{" "}
-          <a href={pageData.source} target="_blank" rel="noopener noreferrer">
-            Wikipedia
-          </a>
-          <img src="/icon-source.svg" alt="" />
-        </p>
-      </div>
+      <TextContent pageData={pageData} name="Mercury" />
     </section>
   );
 }

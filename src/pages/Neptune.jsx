@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import Button from "../components/Button";
+import TextContent from "../components/TextContent";
+import ImageTabs from "../components/ImageTabs";
 import planetData from "../data/data.json";
-import { imageAnimation } from "../utils/animations";
+
 export default function Neptune() {
   const [curTab, setCurTab] = useState("overview");
   const [pageData, setPageData] = useState({
@@ -47,74 +50,22 @@ export default function Neptune() {
       image: infoImage,
     }));
   }, [curTab, pageData.name]);
+
   return (
-    <section className="main-wrapper">
-      <div className="buttons-container">
-        <button
-          onClick={handleClick}
-          className={curTab === "overview" ? "active-tab neptune" : ""}
-          value="overview"
-        >
-          <span>01</span> Overview
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "structure" ? "active-tab neptune" : ""}
-          value="structure"
-        >
-          <span>02</span> Structure
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "geology" ? "active-tab  neptune" : ""}
-          value="geology"
-        >
-          <span>03</span> Surface
-        </button>
-      </div>
+    <section className="main-wrapper" aria-labelledby="planet-heading">
+      <Button
+        curTab={curTab}
+        handleClick={handleClick}
+        name={pageData.name.toLowerCase()}
+      />
       <AnimatePresence mode="wait">
-        {curTab === "geology" ? (
-          <motion.div
-            key="geology"
-            className="image-container neptune geology"
-            {...imageAnimation}
-          >
-            <motion.img
-              src="/neptune/planet-neptune.svg"
-              alt=""
-              {...imageAnimation}
-            />
-            <motion.img
-              src={pageData.image || "/neptune/planet-neptune.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        ) : (
-          <div
-            key={curTab}
-            className="image-container neptune"
-            {...imageAnimation}
-          >
-            <motion.img
-              src={pageData.image || "/neptune/planet-neptune.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </div>
-        )}
+        <ImageTabs
+          curTab={curTab}
+          pageData={pageData}
+          name={pageData.name.toLowerCase()}
+        />
       </AnimatePresence>
-      <div className="text-container">
-        <h1 className="uppercase">Neptune</h1>
-        <p className="info">{pageData.content}</p>
-        <p className="source">
-          <span>Source :</span>{" "}
-          <a href={pageData.source} target="_blank" rel="noopener noreferrer">
-            Wikipedia
-          </a>
-          <img src="/icon-source.svg" alt="" />
-        </p>
-      </div>
+      <TextContent pageData={pageData} name="Neptune" />
     </section>
   );
 }
