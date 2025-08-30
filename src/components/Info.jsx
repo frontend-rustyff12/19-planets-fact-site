@@ -17,7 +17,7 @@ export default function Info({ planet }) {
   }, [planet]);
 
   return (
-    <article className="info-section">
+    <article className="info-section" aria-label="Planet statistics">
       <div className="info-container">
         <p>Rotation Time</p>
         <h3>{planetInfo.rotation}</h3>

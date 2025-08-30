@@ -9,11 +9,15 @@ export default function ImageTabs({ curTab, pageData, name }) {
           key="geology"
           className={`image-container ${name} geology`}
           {...imageAnimation}
+          role="tabpanel"
+          id="geology-panel"
+          aria-labelledby="geology-tab"
         >
           <motion.img
             src={`/${name}/planet-${name}.svg`}
             alt=""
             {...imageAnimation}
+            aria-hidden="true"
           />
           <motion.img
             src={pageData.image || `/${name}/planet-${name}.svg`}
@@ -26,6 +30,9 @@ export default function ImageTabs({ curTab, pageData, name }) {
           key={curTab}
           className={`image-container ${name}`}
           {...imageAnimation}
+          role="tabpanel"
+          id={`${curTab}-panel`}
+          aria-labelledby={`${curTab}-tab`}
         >
           <motion.img
             src={pageData.image || `/${name}/planet-${name}.svg`}
