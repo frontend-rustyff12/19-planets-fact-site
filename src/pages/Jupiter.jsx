@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import planetData from "../data/data.json";
 export default function Jupiter() {
   const [curTab, setCurTab] = useState("overview");
@@ -8,6 +9,24 @@ export default function Jupiter() {
     source: "",
     image: "",
   });
+
+  const imageAnimation = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { duration: 0.3 },
+  };
+
+  useEffect(() => {
+    const images = planetData.find(
+      (item) => item.name.toLowerCase() === "jupiter"
+    ).images;
+    Object.values(images).forEach((image) => {
+      const img = new Image();
+      img.src = image;
+    });
+  }, []);
+
   function handleClick(e) {
     setCurTab(e.target.value);
   }
@@ -60,22 +79,34 @@ export default function Jupiter() {
           <span>03</span> Surface
         </button>
       </div>
-      {curTab === "geology" ? (
-        <div className="image-container geology">
-          <img src="/jupiter/planet-jupiter.svg" alt="" />
-          <img
-            src={pageData.image || "/jupiter/planet-jupiter.svg"}
-            alt={`${pageData.name} ${curTab}`}
-          />
-        </div>
-      ) : (
-        <div className="image-container">
-          <img
-            src={pageData.image || "/jupiter/planet-jupiter.svg"}
-            alt={`${pageData.name} ${curTab}`}
-          />
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {curTab === "geology" ? (
+          <motion.div
+            key="geology"
+            className="image-container geology"
+            {...imageAnimation}
+          >
+            <motion.img
+              src="/jupiter/planet-jupiter.svg"
+              alt=""
+              {...imageAnimation}
+            />
+            <motion.img
+              src={pageData.image || "/jupiter/planet-jupiter.svg"}
+              alt={`${pageData.name} ${curTab}`}
+              {...imageAnimation}
+            />
+          </motion.div>
+        ) : (
+          <div key={curTab} className="image-container" {...imageAnimation}>
+            <motion.img
+              src={pageData.image || "/jupiter/planet-jupiter.svg"}
+              alt={`${pageData.name} ${curTab}`}
+              {...imageAnimation}
+            />
+          </div>
+        )}
+      </AnimatePresence>
       <div className="text-container">
         <h1 className="uppercase">Jupiter</h1>
         <p className="info">{pageData.content}</p>
