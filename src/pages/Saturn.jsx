@@ -77,7 +77,7 @@ export default function Saturn() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container saturn geology"
             {...imageAnimation}
           >
             <motion.img
@@ -92,7 +92,11 @@ export default function Saturn() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container saturn"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/saturn/planet-saturn.svg"}
               alt={`${pageData.name} ${curTab}`}

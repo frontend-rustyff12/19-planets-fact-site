@@ -76,7 +76,7 @@ export default function Uranus() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container uranus geology"
             {...imageAnimation}
           >
             <motion.img
@@ -91,7 +91,11 @@ export default function Uranus() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container uranus"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/uranus/planet-uranus.svg"}
               alt={`${pageData.name} ${curTab}`}

@@ -77,7 +77,7 @@ export default function Mars() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container mars geology"
             {...imageAnimation}
           >
             <motion.img
@@ -92,7 +92,11 @@ export default function Mars() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container mars"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/mars/planet-mars.svg"}
               alt={`${pageData.name} ${curTab}`}

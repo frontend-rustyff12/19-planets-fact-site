@@ -77,7 +77,7 @@ export default function Venus() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container venus geology"
             {...imageAnimation}
           >
             <motion.img
@@ -92,7 +92,11 @@ export default function Venus() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container venus"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/venus/planet-venus.svg"}
               alt={`${pageData.name} ${curTab}`}

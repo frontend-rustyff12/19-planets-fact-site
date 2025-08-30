@@ -79,7 +79,7 @@ export default function Mercury() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container mercury geology"
             {...imageAnimation}
           >
             <motion.img
@@ -96,7 +96,7 @@ export default function Mercury() {
         ) : (
           <motion.div
             key={curTab}
-            className="image-container"
+            className="image-container mercury"
             {...imageAnimation}
           >
             <motion.img

@@ -76,7 +76,7 @@ export default function Neptune() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container neptune geology"
             {...imageAnimation}
           >
             <motion.img
@@ -91,7 +91,11 @@ export default function Neptune() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container neptune"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/neptune/planet-neptune.svg"}
               alt={`${pageData.name} ${curTab}`}

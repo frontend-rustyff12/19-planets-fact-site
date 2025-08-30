@@ -77,7 +77,7 @@ export default function Earth() {
         {curTab === "geology" ? (
           <motion.div
             key="geology"
-            className="image-container geology"
+            className="image-container earth geology"
             {...imageAnimation}
           >
             <motion.img
@@ -92,7 +92,11 @@ export default function Earth() {
             />
           </motion.div>
         ) : (
-          <div key={curTab} className="image-container" {...imageAnimation}>
+          <div
+            key={curTab}
+            className="image-container earth"
+            {...imageAnimation}
+          >
             <motion.img
               src={pageData.image || "/earth/planet-earth.svg"}
               alt={`${pageData.name} ${curTab}`}
