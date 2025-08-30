@@ -10,6 +10,7 @@ export default function Layout() {
         location.pathname.slice(2);
   return (
     <div className="site-wrapper">
+      <div className="background" />
       <Header />
       <main>
         <Outlet />
