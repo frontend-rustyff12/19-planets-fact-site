@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
 import TextContent from "../components/TextContent";
+import ImageTabs from "../components/ImageTabs";
 import planetData from "../data/data.json";
-import { imageAnimation } from "../utils/animations";
 
 export default function Mercury() {
   const [curTab, setCurTab] = useState("overview");
@@ -60,36 +60,11 @@ export default function Mercury() {
       />
 
       <AnimatePresence mode="wait">
-        {curTab === "geology" ? (
-          <motion.div
-            key="geology"
-            className="image-container mercury geology"
-            {...imageAnimation}
-          >
-            <motion.img
-              src="/mercury/planet-mercury.svg"
-              alt=""
-              {...imageAnimation}
-            />
-            <motion.img
-              src={pageData.image || "/mercury/planet-mercury.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key={curTab}
-            className="image-container mercury"
-            {...imageAnimation}
-          >
-            <motion.img
-              src={pageData.image || "/mercury/planet-mercury.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        )}
+        <ImageTabs
+          curTab={curTab}
+          pageData={pageData}
+          name={pageData.name.toLowerCase()}
+        />
       </AnimatePresence>
 
       <TextContent pageData={pageData} name="Mercury" />

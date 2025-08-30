@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Button from "../components/Button";
 import TextContent from "../components/TextContent";
+import ImageTabs from "../components/ImageTabs";
 import planetData from "../data/data.json";
-import { imageAnimation } from "../utils/animations";
+
 export default function Venus() {
   const [curTab, setCurTab] = useState("overview");
   const [pageData, setPageData] = useState({
@@ -58,36 +59,11 @@ export default function Venus() {
         name={pageData.name.toLowerCase()}
       />
       <AnimatePresence mode="wait">
-        {curTab === "geology" ? (
-          <motion.div
-            key="geology"
-            className="image-container venus geology"
-            {...imageAnimation}
-          >
-            <motion.img
-              src="/venus/planet-venus.svg"
-              alt=""
-              {...imageAnimation}
-            />
-            <motion.img
-              src={pageData.image || "/venus/planet-venus.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </motion.div>
-        ) : (
-          <div
-            key={curTab}
-            className="image-container venus"
-            {...imageAnimation}
-          >
-            <motion.img
-              src={pageData.image || "/venus/planet-venus.svg"}
-              alt={`${pageData.name} ${curTab}`}
-              {...imageAnimation}
-            />
-          </div>
-        )}
+        <ImageTabs
+          curTab={curTab}
+          pageData={pageData}
+          name={pageData.name.toLowerCase()}
+        />
       </AnimatePresence>
       <TextContent pageData={pageData} name="Venus" />
     </section>
