@@ -133,6 +133,11 @@ header {
   z-index: 10;
 }
 
+.nav-menu-hamburger.open {
+  filter: invert(21%) sepia(18%) saturate(832%) hue-rotate(202deg)
+    brightness(91%) contrast(92%);
+}
+
 .nav-links-container {
   display: none;
 }
@@ -141,7 +146,7 @@ header {
   position: absolute;
   z-index: 30;
   height: 90vh;
-  width: 100vw;
+  width: 100dvw;
   top: 70px;
   left: 0;
   display: block;
@@ -157,6 +162,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
+  overflow: auto;
 }
 
 .nav-links-container.open .nav-links a {
