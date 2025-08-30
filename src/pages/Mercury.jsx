@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import planetData from "../data/data.json";
 import Button from "../components/Button";
+import planetData from "../data/data.json";
 import { imageAnimation } from "../utils/animations";
 
 export default function Mercury() {
@@ -51,30 +51,7 @@ export default function Mercury() {
   }, [curTab, pageData.name]);
 
   return (
-    <section className="main-wrapper">
-      {/* <div className="buttons-container">
-        <button
-          onClick={handleClick}
-          className={curTab === "overview" ? "active-tab mercury" : ""}
-          value="overview"
-        >
-          <span>01</span> Overview
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "structure" ? "active-tab mercury" : ""}
-          value="structure"
-        >
-          <span>02</span> Structure
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "geology" ? "active-tab  mercury" : ""}
-          value="geology"
-        >
-          <span>03</span> Surface
-        </button>
-      </div> */}
+    <section className="main-wrapper" aria-labelledby="planet-heading">
       <Button
         curTab={curTab}
         handleClick={handleClick}

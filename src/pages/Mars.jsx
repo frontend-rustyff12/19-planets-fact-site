@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "../components/Button";
 import planetData from "../data/data.json";
 import { imageAnimation } from "../utils/animations";
 export default function Mars() {
@@ -49,30 +50,12 @@ export default function Mars() {
   }, [curTab, pageData.name]);
 
   return (
-    <section className="main-wrapper">
-      <div className="buttons-container">
-        <button
-          onClick={handleClick}
-          className={curTab === "overview" ? "active-tab mars" : ""}
-          value="overview"
-        >
-          <span>01</span> Overview
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "structure" ? "active-tab mars" : ""}
-          value="structure"
-        >
-          <span>02</span> Structure
-        </button>
-        <button
-          onClick={handleClick}
-          className={curTab === "geology" ? "active-tab  mars" : ""}
-          value="geology"
-        >
-          <span>03</span> Surface
-        </button>
-      </div>
+    <section className="main-wrapper" aria-labelledby="planet-heading">
+      <Button
+        curTab={curTab}
+        handleClick={handleClick}
+        name={pageData.name.toLowerCase()}
+      />
       <AnimatePresence mode="wait">
         {curTab === "geology" ? (
           <motion.div
