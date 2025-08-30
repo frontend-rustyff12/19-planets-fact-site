@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import planetData from "../data/data.json";
+import { imageAnimation } from "../utils/animations";
 export default function Jupiter() {
   const [curTab, setCurTab] = useState("overview");
   const [pageData, setPageData] = useState({
@@ -9,13 +10,6 @@ export default function Jupiter() {
     source: "",
     image: "",
   });
-
-  const imageAnimation = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-    transition: { duration: 0.3 },
-  };
 
   useEffect(() => {
     const images = planetData.find(

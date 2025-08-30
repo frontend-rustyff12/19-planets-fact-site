@@ -10,6 +10,7 @@ import Jupiter from "./pages/Jupiter";
 import Saturn from "./pages/Saturn";
 import Uranus from "./pages/Uranus";
 import Neptune from "./pages/Neptune";
+import NotFound from "./pages/NotFound";
 function App() {
   const location = useLocation();
   const pageTransition = {
@@ -88,6 +89,14 @@ function App() {
             }
           />
         </Route>
+        <Route
+          path="*"
+          element={
+            <motion.div {...pageTransition}>
+              <NotFound />
+            </motion.div>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
