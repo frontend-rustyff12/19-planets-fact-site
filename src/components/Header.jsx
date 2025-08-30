@@ -49,12 +49,16 @@ export default function Header() {
     <header>
       <div className="header-container">
         <h2 className="uppercase">The Planets</h2>
-        <button onClick={toggleMenu}>
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+        >
           <img
             role="button"
             className={`nav-menu-hamburger ${isMenuOpen ? "open" : ""}`}
             src="/icon-hamburger.svg"
-            alt="Hamburger icon"
+            alt=""
           />
         </button>
 
@@ -64,25 +68,36 @@ export default function Header() {
               <motion.div
                 {...menuTransition}
                 className={`nav-links-container ${isMenuOpen ? "open" : ""}`}
+                role="region"
+                aria-label="Main navigation"
               >
                 <nav>
                   <ul className="nav-links">
                     {menuItems.map((item, index) => (
-                      <NavLink
-                        to={item === "mercury" ? "/" : item}
-                        className={({ isActive }) =>
-                          isActive ? `active-link ${item}` : `${item}`
-                        }
-                        key={index}
-                        onClick={closeMenu}
-                      >
-                        <span className={`circle ${item}`}></span> {item}{" "}
-                        <img
-                          className="chevron"
-                          src="/icon-chevron.svg"
-                          alt=""
-                        />
-                      </NavLink>
+                      <li key={index}>
+                        <NavLink
+                          to={item === "mercury" ? "/" : item}
+                          className={({ isActive }) =>
+                            isActive ? `active-link ${item}` : `${item}`
+                          }
+                          onClick={closeMenu}
+                          aria-current={({ isActive }) =>
+                            isActive ? "page" : undefined
+                          }
+                        >
+                          <span
+                            className={`circle ${item}`}
+                            aria-hidden="true"
+                          ></span>{" "}
+                          {item}{" "}
+                          <img
+                            className="chevron"
+                            src="/icon-chevron.svg"
+                            alt=""
+                            aria-hidden="true"
+                          />
+                        </NavLink>
+                      </li>
                     ))}
                   </ul>
                 </nav>
@@ -90,21 +105,34 @@ export default function Header() {
             )}
           </AnimatePresence>
         ) : (
-          <div className={`nav-links-container ${isMenuOpen ? "open" : ""}`}>
+          <div
+            className={`nav-links-container ${isMenuOpen ? "open" : ""}`}
+            role="region"
+            aria-label="Main navigation"
+          >
             <nav>
               <ul className="nav-links">
                 {menuItems.map((item, index) => (
-                  <NavLink
-                    to={item === "mercury" ? "/" : item}
-                    className={({ isActive }) =>
-                      isActive ? `active-link ${item}` : `${item}`
-                    }
-                    key={index}
-                    onClick={closeMenu}
-                  >
-                    <span className={`circle ${item}`}></span> {item}{" "}
-                    <img className="chevron" src="/icon-chevron.svg" alt="" />
-                  </NavLink>
+                  <li key={index}>
+                    <NavLink
+                      to={item === "mercury" ? "/" : item}
+                      className={({ isActive }) =>
+                        isActive ? `active-link ${item}` : `${item}`
+                      }
+                      onClick={closeMenu}
+                      aria-current={({ isActive }) =>
+                        isActive ? "page" : undefined
+                      }
+                    >
+                      <span className={`circle ${item}`}></span> {item}{" "}
+                      <img
+                        className="chevron"
+                        src="/icon-chevron.svg"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </NavLink>
+                  </li>
                 ))}
               </ul>
             </nav>

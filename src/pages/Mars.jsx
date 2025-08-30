@@ -67,7 +67,7 @@ export default function Mars() {
         </button>
         <button
           onClick={handleClick}
-          className={curTab === "geology" ? "active-tab  mercury" : ""}
+          className={curTab === "geology" ? "active-tab  mars" : ""}
           value="geology"
         >
           <span>03</span> Surface
